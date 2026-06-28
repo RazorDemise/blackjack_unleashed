@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "blackjack-unleashed"
+version = "0.1.0"
+description = "A command-line Blackjack game for the Unleash technical assessment."
+authors = ["RazorDemise"]
+readme = "README.md"
+license = "Proprietary"
+packages = [{ include = "blackjack_unleashed", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.2"
+ruff = "^0.14.8"
+
+[tool.poetry.scripts]
+blackjack = "blackjack_unleashed.cli:run"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
